@@ -3,7 +3,7 @@ import time
 import json
 import re
 
-def has_comment(submission : praw.reddit.submission) -> bool :
+def has_comment(submission : praw.reddit.Submission) -> bool :
 
     # expand comments only if necessary. Each expansion costs one additional request
     try:
@@ -17,7 +17,7 @@ def has_comment(submission : praw.reddit.submission) -> bool :
             return True
     else: return False
 
-def needs_comment(submission : praw.reddit.submission) -> bool : 
+def needs_comment(submission : praw.reddit.Submission) -> bool : 
 
     # non-extensive list of string patterns, which have a high probability 
     # of appearing in (python) code blocks, but not in plain english text
@@ -58,6 +58,7 @@ def main() -> None :
     with open('secrets.json', 'r') as fp:
         data = fp.read()
 
+    global reddit
     reddit = praw.Reddit(
         **json.loads(data)    
     )
