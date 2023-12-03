@@ -1,3 +1,4 @@
+from typing import NoReturn
 import praw
 import time
 import json
@@ -53,7 +54,7 @@ Please help others help you by providing a well readable example of your problem
 [^(*contact my creator*)](https://reddit.com/message/compose/?to=u/Quizznor) \
 *^(if you want to raise an issue.)* [^(Here is my source code)](https://www.github.com/Quizznor/FormattingAssistant)'
 
-def main() -> None :
+def main() -> NoReturn :
 
     with open('secrets.json', 'r') as fp:
         data = fp.read()
